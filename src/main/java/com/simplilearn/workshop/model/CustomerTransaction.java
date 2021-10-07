@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "customertransaction")
@@ -41,13 +41,13 @@ public class CustomerTransaction {
 	@Column(name = "balanceamount")
 	private Float balanceamount;
 	
-	@JsonBackReference
+	@JsonBackReference (value = "custaccounttrans")
 	//@JsonIgnoreProperties("CustomerAccount")
 	@ManyToOne
 	//relationship (many transactions is associated with one account)
 	private CustomerAccount customeraccount;
 
-	@JsonBackReference
+	@JsonBackReference (value = "custtrans")
 	//@JsonIgnoreProperties("Customer")
 	@ManyToOne
 	//relationship (many transactions is associated with one customer)

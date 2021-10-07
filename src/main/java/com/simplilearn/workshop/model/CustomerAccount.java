@@ -14,8 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -38,7 +38,7 @@ public class CustomerAccount {
 		@Column(name = "pinnumber")
 		private String pinnumber;
 		
-		@JsonBackReference
+		@JsonBackReference (value = "custaccount")
 		//@JsonIgnoreProperties("customer")
 		@ManyToOne
 		//relationship (many accounts is associated with one customer)
@@ -46,14 +46,14 @@ public class CustomerAccount {
 		
 		//one to many
 		//@JsonIgnoreProperties("custtransactiontab")
-		@JsonManagedReference
+		@JsonManagedReference (value = "custaccounttrans")
 		//@JsonIgnore
 		@OneToMany (mappedBy = 	"customeraccount")
 		private List<CustomerTransaction> custtransactiontab = new ArrayList<CustomerTransaction>();
 		
 		//one to many
 		//@JsonIgnoreProperties("chequerequesttab")
-		//@JsonManagedReference
+		@JsonManagedReference (value = "custaccountchq")
 		//@JsonIgnore
 		@OneToMany (mappedBy = 	"customeraccount")
 		private List<ChequeRequest> chequerequesttab = new ArrayList<ChequeRequest>();

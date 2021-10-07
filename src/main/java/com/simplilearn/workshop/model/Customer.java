@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -68,14 +68,14 @@ public class Customer {
 	//one to many
 	//@JsonIgnoreProperties("custaccounttab")
 	//@JsonIgnore
-	@JsonManagedReference
+	@JsonManagedReference(value = "custaccount")
 	@OneToMany (mappedBy = 	"customer")
 	private List<CustomerAccount> custaccounttab = new ArrayList<CustomerAccount>();
 	
 	//one to many
 	//@JsonIgnoreProperties("custtransactiontab")
 	//@JsonIgnore
-	@JsonManagedReference
+	@JsonManagedReference(value = "custtrans")
 	@OneToMany (mappedBy = 	"customer")
 	private List<CustomerTransaction> custtransactiontab = new ArrayList<CustomerTransaction>();
 			

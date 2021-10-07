@@ -27,7 +27,7 @@ public class ChequeRequest {
 	@Column(name = "chequerequeststatus")
 	private String chequerequeststatus;
 	
-	@JsonBackReference
+	@JsonBackReference (value = "custaccountchq")
 	@ManyToOne
 	//relationship (many cheque requests are associated with one customer account)
 	private CustomerAccount customeraccount;
