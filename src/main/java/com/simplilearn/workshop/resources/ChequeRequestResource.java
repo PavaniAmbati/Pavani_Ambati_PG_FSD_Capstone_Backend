@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simplilearn.workshop.model.ChequeRequest;
+import com.simplilearn.workshop.model.Customer;
 import com.simplilearn.workshop.services.ChequeRequestService;
 
 @RestController
@@ -39,13 +40,23 @@ public class ChequeRequestResource {
 	
 	//get cheque requests by id
 	//http://localhost:8000/api/chequerequests/1
-	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("{id}")
-	public ResponseEntity<ChequeRequest> getChequeRequestbyId(@PathVariable ("id") int chequerequestid){
-		ChequeRequest getChequeRequestbyId = chequeRequestService.getChequeRequest(chequerequestid);
-		return new ResponseEntity<ChequeRequest>(getChequeRequestbyId, HttpStatus.OK);
-	}
+	//@CrossOrigin(origins = "http://localhost:4200")
+	//@GetMapping("{id}")
+	//public ResponseEntity<ChequeRequest> getChequeRequestbyId(@PathVariable ("id") int chequerequestid){
+		//ChequeRequest getChequeRequestbyId = chequeRequestService.getChequeRequest(chequerequestid);
+		//return new ResponseEntity<ChequeRequest>(getChequeRequestbyId, HttpStatus.OK);
+	//}
 	
+	//get cheque requests by approval status
+	//http://localhost:8000/api/chequerequests/approved
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("{status}")
+	public List<ChequeRequest> getChequeRequestbyStatus(@PathVariable ("status") String chequerequeststatus){
+		//ChequeRequest getChequeRequestbyStatus = chequeRequestService.getChequeRequest(chequerequeststatus);
+		return chequeRequestService.getChequeRequestsbystatus(chequerequeststatus);
+	}
+
+
 	//create new cheque request 
 	//@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping()

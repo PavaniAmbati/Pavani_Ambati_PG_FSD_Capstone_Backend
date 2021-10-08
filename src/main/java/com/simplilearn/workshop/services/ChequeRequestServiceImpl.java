@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.simplilearn.workshop.model.AdminUser;
 import com.simplilearn.workshop.model.ChequeRequest;
+import com.simplilearn.workshop.model.Customer;
 import com.simplilearn.workshop.repository.ChequeRequestRepository;
 
 @Service(value = "chequeRequest")
@@ -46,5 +47,10 @@ public class ChequeRequestServiceImpl implements ChequeRequestService{
 		return chequerequest;
 	}
 
+	@Override
+	public List<ChequeRequest> getChequeRequestsbystatus(String theStatus) {
+		return chequeRequestRepository.findBychequerequeststatus(theStatus);
+	}
+	
 	
 }
