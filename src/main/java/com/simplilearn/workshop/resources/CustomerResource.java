@@ -40,12 +40,21 @@ public class CustomerResource {
 		}
 		
 		//get customer by id
-		//http://localhost:8000/api/chequerequests/1
+		//http://localhost:8000/api/customers/1
+		//@CrossOrigin(origins = "http://localhost:4200")
+		//@GetMapping("{id}")
+		//public ResponseEntity<Customer> getCustomerbyId(@PathVariable ("id") int custid){
+			///Customer getCustomerbyId = customerService.getCustomer(custid);
+			//return new ResponseEntity<Customer>(getCustomerbyId, HttpStatus.OK);
+		//}
+		
+		//get customer by status
+		//http://localhost:8000/api/customers/active
 		@CrossOrigin(origins = "http://localhost:4200")
-		@GetMapping("{id}")
-		public ResponseEntity<Customer> getCustomerbyId(@PathVariable ("id") int custid){
-			Customer getCustomerbyId = customerService.getCustomer(custid);
-			return new ResponseEntity<Customer>(getCustomerbyId, HttpStatus.OK);
+		@GetMapping("{status}")
+		public List<Customer> getCustomersbyStatus(@PathVariable ("status") String onlinestatus){
+			//List<Customer> getCustomersbyStatus = customerService.getCustomersbystatus(onlinestatus);
+			return customerService.getCustomersbystatus(onlinestatus);
 		}
 	
 		//create new customer 

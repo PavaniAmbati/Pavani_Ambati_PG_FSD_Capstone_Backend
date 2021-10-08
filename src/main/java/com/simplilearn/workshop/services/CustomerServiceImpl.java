@@ -58,5 +58,11 @@ public class CustomerServiceImpl implements CustomerService {
 		return customer;
 		
 	}
+
+	@Override
+	public List<Customer> getCustomersbystatus(String theStatus) {
+		return customerRepository.findByonlineaccountstatus(theStatus);
+	}
 	
+
 }
