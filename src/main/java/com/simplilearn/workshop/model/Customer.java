@@ -64,6 +64,7 @@ public class Customer {
 	
 	@Column(name = "onlineaccountstatus")
 	private String onlineaccountstatus;
+
 		
 	//one to many
 	//@JsonIgnoreProperties("custaccounttab")
@@ -79,9 +80,10 @@ public class Customer {
 	@OneToMany (mappedBy = 	"customer")
 	private List<CustomerTransaction> custtransactiontab = new ArrayList<CustomerTransaction>();
 			
+	
 	public Customer(Integer custid, String firstname, String lastname, String phonenumber, String email,
 			String housenumber, String streetname, String city, String state, String country, String postalcode,
-			String dateofbirth, String bankcardnumber, String username, String password, String onlineaccountstatus) {
+			String dateofbirth, String username, String password, String onlineaccountstatus) {
 		super();
 		this.custid = custid;
 		this.firstname = firstname;
@@ -98,6 +100,7 @@ public class Customer {
 		this.username = username;
 		this.password = password;
 		this.onlineaccountstatus = onlineaccountstatus;
+		
 	}
 
 	public Customer() {
@@ -224,6 +227,7 @@ public class Customer {
 		this.onlineaccountstatus = onlineaccountstatus;
 	}
 	
+
 	public List<CustomerAccount> getCustaccounttab() {
 		return custaccounttab;
 	}

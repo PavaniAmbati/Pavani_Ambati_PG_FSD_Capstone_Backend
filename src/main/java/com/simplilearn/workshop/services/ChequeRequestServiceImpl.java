@@ -51,6 +51,11 @@ public class ChequeRequestServiceImpl implements ChequeRequestService{
 	public List<ChequeRequest> getChequeRequestsbystatus(String theStatus) {
 		return chequeRequestRepository.findBychequerequeststatus(theStatus);
 	}
+
+	//@Override
+	//public List<ChequeRequest> findAllbyJoin() {
+		//return chequeRequestRepository.findAllbyJoin();
+	//}
 	
-	
+		
 }

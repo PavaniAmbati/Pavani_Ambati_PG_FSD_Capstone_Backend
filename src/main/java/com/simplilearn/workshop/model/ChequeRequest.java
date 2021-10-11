@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-@Entity
+@Entity(name="chequerequest")
 @Table(name = "chequerequest")
 public class ChequeRequest {
 	
@@ -18,8 +18,11 @@ public class ChequeRequest {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer chequerequestid;
 	
-	//@Column(name = "accountid")
-	//private Integer accountid;
+	@Column(name = "accountid")
+	private Integer accountid;
+	
+	@Column(name = "accountnumber")
+	private String accountnumber;
 	
 	@Column(name = "chequetype")
 	private String chequetype;
@@ -36,13 +39,17 @@ public class ChequeRequest {
 		super();
 	}
 
-	public ChequeRequest(Integer chequerequestid, Integer accountid, String chequetype, String chequerequeststatus) {
+	
+	public ChequeRequest(Integer chequerequestid, Integer accountid, String accountnumber, String chequetype,
+			String chequerequeststatus) {
 		super();
 		this.chequerequestid = chequerequestid;
-		//this.accountid = accountid;
+		this.accountid = accountid;
+		this.accountnumber = accountnumber;
 		this.chequetype = chequetype;
 		this.chequerequeststatus = chequerequeststatus;
 	}
+
 
 	public Integer getChequerequestid() {
 		return chequerequestid;
@@ -52,13 +59,22 @@ public class ChequeRequest {
 		this.chequerequestid = chequerequestid;
 	}
 
-	//public Integer getAccountid() {
-		//return accountid;
-	//}
+	public Integer getAccountid() {
+		return accountid;
+	}
 
-	//public void setAccountid(Integer accountid) {
-		//this.accountid = accountid;
-	//}
+	public void setAccountid(Integer accountid) {
+		this.accountid = accountid;
+	}
+	
+
+	public String getAccountnumber() {
+		return accountnumber;
+	}
+
+	public void setAccountnumber(String accountnumber) {
+		this.accountnumber = accountnumber;
+	}
 
 	public String getChequetype() {
 		return chequetype;
@@ -84,11 +100,12 @@ public class ChequeRequest {
 		this.customeraccount = customeraccount;
 	}
 
+
 	@Override
 	public String toString() {
-		return "ChequeRequest [chequerequestid=" + chequerequestid + ", chequetype="
-				+ chequetype + ", chequerequeststatus=" + chequerequeststatus + "]";
-	}
+		return "ChequeRequest [chequerequestid=" + chequerequestid + ", accountid=" + accountid + ", accountnumber="
+				+ accountnumber + ", chequetype=" + chequetype + ", chequerequeststatus=" + chequerequeststatus + "]";
+	}	
 		
 
 }

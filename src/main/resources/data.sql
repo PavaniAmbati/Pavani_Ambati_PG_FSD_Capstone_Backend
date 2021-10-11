@@ -4,23 +4,27 @@ insert into customer(firstname,lastname,phonenumber,email,housenumber,streetname
 values ('jackie','king','455-454-5666','jackie.king@test.com','244','honeycomb drive','Jackson','Alberta','Canada','M7Y6T6','08/25/1990','','','');
 
 
-insert into customeraccount(customer_custid,accounttype,bankcardnumber,pinnumber)
-values (1,'savings','S45554445444','2344');
-insert into customeraccount(customer_custid,accounttype,bankcardnumber,pinnumber)
-values (1,'checking','C44554455765','2344');
-insert into customeraccount(customer_custid,accounttype,bankcardnumber,pinnumber)
-values (2,'checking','C788777676666','4533');
+insert into customeraccount(custid,accounttype,accountnumber,pinnumber,customer_custid)
+values (1,'savings','S45554445444','2344',1);
+insert into customeraccount(custid,accounttype,accountnumber,pinnumber,customer_custid)
+values (1,'checking','C44554455765','2344',1);
+insert into customeraccount(custid,accounttype,accountnumber,pinnumber,customer_custid)
+values (2,'checking','C788777676666','4533',2);
 
 
-insert into customertransaction(customeraccount_accountid,customer_custid,transdate,transtype,transamount,balanceamount)
-values (1,1,'09/05/2021','withdrawal','100','2000');
-insert into customertransaction(customeraccount_accountid,customer_custid,transdate,transtype,transamount,balanceamount)
-values (1,1,'09/06/2021','deposit','200','2200');
-insert into customertransaction(customeraccount_accountid,customer_custid,transdate,transtype,transamount,balanceamount)
-values (1,2,'09/07/2021','deposit','1000','10000');
+insert into customertransaction(accountid,custid,transdate,transtype,transamount,balanceamount,customer_custid,customeraccount_accountid)
+values (1,1,'09/05/2021','withdrawal','100','2000',1,1);
+insert into customertransaction(accountid,custid,transdate,transtype,transamount,balanceamount,customer_custid,customeraccount_accountid)
+values (1,1,'09/06/2021','deposit','200','2200',1,1);
+insert into customertransaction(accountid,custid,transdate,transtype,transamount,balanceamount,customer_custid,customeraccount_accountid)
+values (1,2,'09/07/2021','deposit','1000','10000',2,1);
 
-insert into chequerequest(customeraccount_accountid,chequetype,chequerequeststatus)
-values (1,'50 cheques','approved');
+insert into chequerequest(accountid,accountnumber,chequetype,chequerequeststatus,customeraccount_accountid)
+values (1,'S45554445444','50 cheques','approved',1);
+insert into chequerequest(accountid,accountnumber,chequetype,chequerequeststatus,customeraccount_accountid)
+values (2,'C44554455765','50 cheques','approved',2);
+insert into chequerequest(accountid,accountnumber,chequetype,chequerequeststatus,customeraccount_accountid)
+values (3,'C44554455765','25 cheques','',3);
 
 insert into adminusers(userid,username,password)
 values (1,'admin','admin1');

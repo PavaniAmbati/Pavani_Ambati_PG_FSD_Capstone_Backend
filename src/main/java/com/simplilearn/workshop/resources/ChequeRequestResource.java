@@ -38,6 +38,13 @@ public class ChequeRequestResource {
 		return chequeRequestService.getChequeRequests();
 	}
 	
+	//get all cheque requests by join
+	//@CrossOrigin(origins = "http://localhost:4200")
+	//@GetMapping()
+	//public List<ChequeRequest> retrieveAllChequeRequestsbyjoin(){
+		//return chequeRequestService.findAllbyJoin();
+	//}
+	
 	//get cheque requests by id
 	//http://localhost:8000/api/chequerequests/1
 	//@CrossOrigin(origins = "http://localhost:4200")

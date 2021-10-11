@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 //import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-@Entity
+@Entity(name="customeraccount")
 @Table(name = "customeraccount")
 public class CustomerAccount {
 
@@ -26,14 +26,14 @@ public class CustomerAccount {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Integer accountid;
 		
-		//@Column(name = "custid")
-		//private Integer custid;
+		@Column(name = "custid")
+		private Integer custid;
 		
 		@Column(name = "accounttype")
 		private String accounttype;
 		
-		@Column(name = "bankcardnumber")
-		private String bankcardnumber;
+		@Column(name = "accountnumber")
+		private String accountnumber;
 		
 		@Column(name = "pinnumber")
 		private String pinnumber;
@@ -63,13 +63,13 @@ public class CustomerAccount {
 	
 		}
 
-		public CustomerAccount(Integer accountid, Integer custid, String accounttype, String bankcardnumber,
+		public CustomerAccount(Integer accountid, Integer custid, String accounttype, String accountnumber,
 				String pinnumber) {
 			super();
 			this.accountid = accountid;
-			//this.custid = custid;
+			this.custid = custid;
 			this.accounttype = accounttype;
-			this.bankcardnumber = bankcardnumber;
+			this.accountnumber = accountnumber;
 			this.pinnumber = pinnumber;
 		}
 
@@ -81,13 +81,13 @@ public class CustomerAccount {
 			this.accountid = accountid;
 		}
 
-		//public Integer getCustid() {
-			//return custid;
-		//}
+		public Integer getCustid() {
+			return custid;
+		}
 
-		//public void setCustid(Integer custid) {
-		//	this.custid = custid;
-		//}
+		public void setCustid(Integer custid) {
+			this.custid = custid;
+		}
 
 		public String getAccounttype() {
 			return accounttype;
@@ -97,12 +97,12 @@ public class CustomerAccount {
 			this.accounttype = accounttype;
 		}
 
-		public String getBankcardnumber() {
-			return bankcardnumber;
+		public String getAccountnumber() {
+			return accountnumber;
 		}
 
-		public void setBankcardnumber(String bankcardnumber) {
-			this.bankcardnumber = bankcardnumber;
+		public void setAccountnumber(String accountnumber) {
+			this.accountnumber = accountnumber;
 		}
 
 		public String getPinnumber() {
@@ -137,12 +137,14 @@ public class CustomerAccount {
 			this.chequerequesttab = chequerequesttab;
 		}
 
+		
 		@Override
 		public String toString() {
-			return "CustomerAccount [accountid=" + accountid + ", accounttype=" + accounttype
-					+ ", bankcardnumber=" + bankcardnumber + ", pinnumber=" + pinnumber + "]";
+			return "CustomerAccount [accountid=" + accountid + ", custid=" + custid + ", accounttype=" + accounttype
+					+ ", accountnumber=" + accountnumber + ", pinnumber=" + pinnumber + ", customer=" + customer
+					+ "]";
 		}
-		
+
 		public void addCustomerTransaction(CustomerTransaction customertransactionTab) {
 			customertransactionTab.setCustomeraccount(this);
 			custtransactiontab.add(customertransactionTab);

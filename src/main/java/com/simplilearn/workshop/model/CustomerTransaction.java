@@ -23,11 +23,11 @@ public class CustomerTransaction {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer transid;
 	
-	//@Column(name = "accountid")
-	//private Integer accountid;
+	@Column(name = "accountid")
+	private Integer accountid;
 	
-	//@Column(name = "custid")
-	//private Integer custid;
+	@Column(name = "custid")
+	private Integer custid;
 	
 	@Column(name = "transdate")
 	private String transdate;
@@ -64,7 +64,7 @@ public class CustomerTransaction {
 	public void setTransid(Integer transid) {
 		this.transid = transid;
 	}
-/*
+
 	public Integer getAccountid() {
 		return accountid;
 	}
@@ -80,7 +80,7 @@ public class CustomerTransaction {
 	public void setCustid(Integer custid) {
 		this.custid = custid;
 	}
-*/
+
 
 	public String getTransdate() {
 		return transdate;
@@ -133,9 +133,12 @@ public class CustomerTransaction {
 
 	@Override
 	public String toString() {
-		return "CustomerTransaction [transid=" + transid + ", transdate=" + transdate + ", transtype=" + transtype + ", transamount=" + transamount
+		return "CustomerTransaction [transid=" + transid + ", accountid=" + accountid + ", custid=" + custid
+				+ ", transdate=" + transdate + ", transtype=" + transtype + ", transamount=" + transamount
 				+ ", balanceamount=" + balanceamount + "]";
 	}
+
+	
 
 	
 }

@@ -13,4 +13,5 @@ public interface ChequeRequestService {
 	public List<ChequeRequest> getChequeRequestsbystatus(String theStatus);
 	public void deleteChequeRequest(Integer theid);
 	public ChequeRequest updateChequeRequest(ChequeRequest chequeRequest, Integer Id);
+	//public List<ChequeRequest> findAllbyJoin();
 }
