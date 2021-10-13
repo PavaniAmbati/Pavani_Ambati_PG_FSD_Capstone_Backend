@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.simplilearn.workshop.model.Customer;
 import com.simplilearn.workshop.model.CustomerAccount;
 import com.simplilearn.workshop.model.CustomerTransaction;
 import com.simplilearn.workshop.services.CustomerTransactionService;
@@ -44,6 +45,15 @@ public class CustomerTransactionResource {
 	public ResponseEntity<CustomerTransaction> getCustomerTransactionbyId(@PathVariable ("id") int transid){
 		CustomerTransaction getCustomerTransactionbyId = customerTransactionService.getCustomerTransaction(transid);
 		return new ResponseEntity<CustomerTransaction>(getCustomerTransactionbyId, HttpStatus.OK);
+	}
+	
+	//get customer transactions by transtype
+	//http://localhost:8000/api/customers/active
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("transtype/{transtype}")
+	public List<CustomerTransaction> getCusttransactionsbyTranstype(@PathVariable ("transtype") String transtype){
+		//List<Customer> getCustomersbyStatus = customerService.getCustomersbystatus(onlinestatus);
+		return customerTransactionService.getCusttransactionssbytranstype(transtype);
 	}
 
 	//create new customer transaction

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.simplilearn.workshop.model.Customer;
 import com.simplilearn.workshop.model.CustomerAccount;
 import com.simplilearn.workshop.model.CustomerTransaction;
 import com.simplilearn.workshop.repository.CustomerTransactionRepository;
@@ -38,7 +39,11 @@ public class CustomerTransactionServiceImpl implements CustomerTransactionServic
 	@Override
 	public List<CustomerTransaction> getCustomerTransactionsbyAccId(Integer theAccId) {
 		return customerTransactionRepository.findByaccountid(theAccId);
+	}
+
+	@Override
+	public List<CustomerTransaction> getCusttransactionssbytranstype(String theTranstype) {
+		return customerTransactionRepository.findBytranstype(theTranstype);
 	}	
 	
-
 }
