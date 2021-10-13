@@ -40,13 +40,13 @@ public class CustomerResource {
 		}
 		
 		//get customer by id
-		//http://localhost:8000/api/customers/1
-		//@CrossOrigin(origins = "http://localhost:4200")
-		//@GetMapping("{id}")
-		//public ResponseEntity<Customer> getCustomerbyId(@PathVariable ("id") int custid){
-			///Customer getCustomerbyId = customerService.getCustomer(custid);
-			//return new ResponseEntity<Customer>(getCustomerbyId, HttpStatus.OK);
-		//}
+		//http://localhost:8000/api/customers/id/1
+		@CrossOrigin(origins = "http://localhost:4200")
+		@GetMapping("/id/{id}")
+		public ResponseEntity<Customer> getCustomerbyId(@PathVariable ("id") int custid){
+			Customer getCustomerbyId = customerService.getCustomer(custid);
+			return new ResponseEntity<Customer>(getCustomerbyId, HttpStatus.OK);
+		}
 		
 		//get customer by status
 		//http://localhost:8000/api/customers/active

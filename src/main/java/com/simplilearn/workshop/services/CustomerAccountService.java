@@ -10,5 +10,6 @@ public interface CustomerAccountService {
 	public CustomerAccount saveCustomerAccount(CustomerAccount theCustomerAccount);
 	public CustomerAccount getCustomerAccount(Integer theId);
 	public void deleteCustomerAccount(Integer theid);
+	public List<CustomerAccount> getCustomerAccountsbyCustId(Integer theCustId);
 
 }

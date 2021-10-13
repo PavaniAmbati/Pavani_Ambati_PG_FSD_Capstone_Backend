@@ -35,4 +35,12 @@ public class CustomerAccountServiceImpl implements CustomerAccountService {
 
 	}
 
+	@Override
+	public List<CustomerAccount> getCustomerAccountsbyCustId(Integer theCustId) {
+		return customerAccountRepository.findBycustid(theCustId);
+	}
+
+	
+	
+
 }

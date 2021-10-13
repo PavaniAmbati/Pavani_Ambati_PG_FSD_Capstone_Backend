@@ -46,6 +46,15 @@ public class CustomerAccountResource {
 		CustomerAccount getCustomerAccountbyId = customerAccountService.getCustomerAccount(accountid);
 		return new ResponseEntity<CustomerAccount>(getCustomerAccountbyId, HttpStatus.OK);
 	}
+	
+	//get customer accounts by cust id
+		//http://localhost:8000/api/customeraccounts/custid/1
+		@CrossOrigin(origins = "http://localhost:4200")
+		@GetMapping("custid/{id}")
+		public List<CustomerAccount> getCustomerAccountbyCustId(@PathVariable ("id") int custid){
+			return customerAccountService.getCustomerAccountsbyCustId(custid);
+	}
+
 
 
 

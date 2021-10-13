@@ -50,6 +50,7 @@ public class CustomerServiceImpl implements CustomerService {
 		cust.setCity(customer.getCity());
 		cust.setState(customer.getState());
 		cust.setPostalcode(customer.getCity());
+		cust.setUsername(customer.getUsername());
 		cust.setPassword(customer.getPassword());
 		cust.setDateofbirth(customer.getDateofbirth());
 		cust.setOnlineaccountstatus(customer.getOnlineaccountstatus());
