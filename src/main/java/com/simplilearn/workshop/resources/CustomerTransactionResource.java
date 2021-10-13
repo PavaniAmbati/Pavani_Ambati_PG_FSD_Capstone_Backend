@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.simplilearn.workshop.model.CustomerAccount;
 import com.simplilearn.workshop.model.CustomerTransaction;
 import com.simplilearn.workshop.services.CustomerTransactionService;
 
@@ -54,6 +55,14 @@ public class CustomerTransactionResource {
 		return new ResponseEntity<CustomerTransaction>(savedCustomerTransaction,HttpStatus.CREATED);
 	}
 	
+	//get customer accounts by cust id
+	//http://localhost:8000/api/customeraccounts/custid/1
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("accountid/{id}")
+	public List<CustomerTransaction> getCustomerTransactionbyAccId(@PathVariable ("id") int accid){
+		return customerTransactionService.getCustomerTransactionsbyAccId(accid);
+	}
+
 	
 
 }

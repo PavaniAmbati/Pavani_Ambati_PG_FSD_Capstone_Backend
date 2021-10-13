@@ -10,5 +10,5 @@ public interface CustomerTransactionService {
 	public CustomerTransaction saveCustomerTransaction(CustomerTransaction theCustomerTransaction);
 	public CustomerTransaction getCustomerTransaction(Integer theId);
 	public void deleteCustomerTransaction(Integer theid);
-
+	public List<CustomerTransaction> getCustomerTransactionsbyAccId(Integer theAccId);
 }
