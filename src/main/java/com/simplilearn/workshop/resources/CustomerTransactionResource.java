@@ -41,16 +41,16 @@ public class CustomerTransactionResource {
 	//get customer transactions by id
 	//http://localhost:8000/api/customertransactions/1
 	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("{id}")
+	@GetMapping("id/{id}")
 	public ResponseEntity<CustomerTransaction> getCustomerTransactionbyId(@PathVariable ("id") int transid){
 		CustomerTransaction getCustomerTransactionbyId = customerTransactionService.getCustomerTransaction(transid);
 		return new ResponseEntity<CustomerTransaction>(getCustomerTransactionbyId, HttpStatus.OK);
 	}
 	
 	//get customer transactions by transtype
-	//http://localhost:8000/api/customers/active
+	//http://localhost:8000/api/customertransactions/active
 	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("transtype/{transtype}")
+	@GetMapping("{transtype}")
 	public List<CustomerTransaction> getCusttransactionsbyTranstype(@PathVariable ("transtype") String transtype){
 		//List<Customer> getCustomersbyStatus = customerService.getCustomersbystatus(onlinestatus);
 		return customerTransactionService.getCusttransactionssbytranstype(transtype);

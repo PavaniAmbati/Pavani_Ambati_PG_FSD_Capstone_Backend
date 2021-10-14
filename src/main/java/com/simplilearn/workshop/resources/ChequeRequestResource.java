@@ -65,7 +65,7 @@ public class ChequeRequestResource {
 
 
 	//create new cheque request 
-	//@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping()
 	public ResponseEntity<ChequeRequest> createChequeRequest(@RequestBody ChequeRequest theChequeRequest) {
 		ChequeRequest savedChequeRequest = chequeRequestService.saveChequeRequest(theChequeRequest);
