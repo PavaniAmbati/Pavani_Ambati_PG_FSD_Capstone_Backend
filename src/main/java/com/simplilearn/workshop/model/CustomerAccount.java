@@ -38,6 +38,9 @@ public class CustomerAccount {
 		@Column(name = "pinnumber")
 		private String pinnumber;
 		
+		@Column(name = "totalamount")
+		private Float totalamount;
+				
 		@JsonBackReference (value = "custaccount")
 		//@JsonIgnoreProperties("customer")
 		@ManyToOne
@@ -63,15 +66,19 @@ public class CustomerAccount {
 	
 		}
 
+		
 		public CustomerAccount(Integer accountid, Integer custid, String accounttype, String accountnumber,
-				String pinnumber) {
+				String pinnumber, Float totalamount) {
 			super();
 			this.accountid = accountid;
 			this.custid = custid;
 			this.accounttype = accounttype;
 			this.accountnumber = accountnumber;
 			this.pinnumber = pinnumber;
+			this.totalamount = totalamount;
 		}
+
+
 
 		public Integer getAccountid() {
 			return accountid;
@@ -112,6 +119,14 @@ public class CustomerAccount {
 		public void setPinnumber(String pinnumber) {
 			this.pinnumber = pinnumber;
 		}
+		
+		public Float getTotalamount() {
+			return totalamount;
+		}
+
+		public void setTotalamount(Float totalamount) {
+			this.totalamount = totalamount;
+		}
 
 		public Customer getCustomer() {
 			return customer;
@@ -138,10 +153,11 @@ public class CustomerAccount {
 		}
 
 		
+		
 		@Override
 		public String toString() {
 			return "CustomerAccount [accountid=" + accountid + ", custid=" + custid + ", accounttype=" + accounttype
-					+ ", accountnumber=" + accountnumber + ", pinnumber=" + pinnumber + ", customer=" + customer
+					+ ", accountnumber=" + accountnumber + ", pinnumber=" + pinnumber + ", totalamount=" + totalamount
 					+ "]";
 		}
 

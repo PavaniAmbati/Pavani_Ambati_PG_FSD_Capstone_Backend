@@ -54,6 +54,20 @@ public class CustomerAccountResource {
 		public List<CustomerAccount> getCustomerAccountbyCustId(@PathVariable ("id") int custid){
 			return customerAccountService.getCustomerAccountsbyCustId(custid);
 	}
+		
+	//update total amount by id
+	//response : 204
+	//http://localhost:8000/api/customeraccounts/1
+	@CrossOrigin(origins = "http://localhost:4200")
+	@PutMapping("{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public ResponseEntity<CustomerAccount> updateCustomerAccount(@PathVariable("id") Integer id
+				    								,@RequestBody CustomerAccount customeraccount){
+						
+		CustomerAccount updateCustAcc = customerAccountService.updateCustomerAccount(customeraccount, id);
+		return new ResponseEntity<CustomerAccount>(updateCustAcc, HttpStatus.OK);
+					
+	}
 
 
 

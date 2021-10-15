@@ -4,12 +4,12 @@ insert into customer(firstname,lastname,phonenumber,email,housenumber,streetname
 values ('jackie','king','455-454-5666','jackie.king@test.com','244','honeycomb drive','Jackson','Alberta','Canada','M7Y6T6','08/25/1990','','','');
 
 
-insert into customeraccount(custid,accounttype,accountnumber,pinnumber,customer_custid)
-values (1,'savings','S45554445444','2344',1);
-insert into customeraccount(custid,accounttype,accountnumber,pinnumber,customer_custid)
-values (1,'checking','C44554455765','2344',1);
-insert into customeraccount(custid,accounttype,accountnumber,pinnumber,customer_custid)
-values (2,'checking','C788777676666','4533',2);
+insert into customeraccount(custid,accounttype,accountnumber,pinnumber,totalamount,customer_custid)
+values (1,'savings','S45554445444','2344',2200,1);
+insert into customeraccount(custid,accounttype,accountnumber,pinnumber,totalamount,customer_custid)
+values (1,'checking','C44554455765','2344',5000,1);
+insert into customeraccount(custid,accounttype,accountnumber,pinnumber,totalamount,customer_custid)
+values (2,'checking','C788777676666','4533',10000,2);
 
 
 insert into customertransaction(accountid,custid,transdate,transtype,transamount,balanceamount,customer_custid,customeraccount_accountid)
