@@ -41,6 +41,9 @@ public class CustomerTransaction {
 	@Column(name = "balanceamount")
 	private Float balanceamount;
 	
+	@Column(name = "transfromaccountnumber")
+	private String transfromaccountnumber;
+	
 	@JsonBackReference (value = "custaccounttrans")
 	//@JsonIgnoreProperties("CustomerAccount")
 	@ManyToOne
@@ -56,6 +59,20 @@ public class CustomerTransaction {
 	public CustomerTransaction() {
 		super();
 	}
+	
+	public CustomerTransaction(Integer transid, Integer accountid, Integer custid, String transdate, String transtype,
+			Float transamount, Float balanceamount, String transfromaccountnumber) {
+		super();
+		this.transid = transid;
+		this.accountid = accountid;
+		this.custid = custid;
+		this.transdate = transdate;
+		this.transtype = transtype;
+		this.transamount = transamount;
+		this.balanceamount = balanceamount;
+		this.transfromaccountnumber = transfromaccountnumber;
+	}
+
 
 	public Integer getTransid() {
 		return transid;
@@ -115,6 +132,14 @@ public class CustomerTransaction {
 		
 	}
 	
+	public String getTransfromaccountnumber() {
+		return transfromaccountnumber;
+	}
+
+	public void setTransfromaccountnumber(String transfromaccountnumber) {
+		this.transfromaccountnumber = transfromaccountnumber;
+	}
+
 	public CustomerAccount getCustomeraccount() {
 		return customeraccount;
 	}
@@ -135,9 +160,10 @@ public class CustomerTransaction {
 	public String toString() {
 		return "CustomerTransaction [transid=" + transid + ", accountid=" + accountid + ", custid=" + custid
 				+ ", transdate=" + transdate + ", transtype=" + transtype + ", transamount=" + transamount
-				+ ", balanceamount=" + balanceamount + "]";
+				+ ", balanceamount=" + balanceamount + ", transfromaccountnumber=" + transfromaccountnumber + "]";
 	}
 
+	
 	
 
 	

@@ -13,5 +13,7 @@ public interface CustomerAccountService {
 	public void deleteCustomerAccount(Integer theid);
 	public List<CustomerAccount> getCustomerAccountsbyCustId(Integer theCustId);
 	public CustomerAccount updateCustomerAccount(CustomerAccount customeraccount, Integer Id);
+	public List<CustomerAccount> getCustomerAccountbyNumber(String theAccnum);
+	
 
 }

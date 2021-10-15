@@ -10,6 +10,7 @@ import com.simplilearn.workshop.model.CustomerAccount;
 public interface CustomerAccountRepository extends JpaRepository<CustomerAccount, Integer>{
 
 	List<CustomerAccount> findBycustid(Integer custId);
+	List<CustomerAccount> findByaccountnumber(String accNum);
 
 	
 	

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.simplilearn.workshop.model.Customer;
 import com.simplilearn.workshop.model.CustomerAccount;
+import com.simplilearn.workshop.model.CustomerTransaction;
 import com.simplilearn.workshop.services.CustomerAccountService;
 
 @RestController
@@ -55,6 +56,14 @@ public class CustomerAccountResource {
 			return customerAccountService.getCustomerAccountsbyCustId(custid);
 	}
 		
+	//get customer account by accountnumber
+	//http://localhost:8000/api/customeraccounts/S45554445444
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("accountnumber/{accnum}")
+	public List<CustomerAccount> getCustomerAccountbyNum(@PathVariable ("accnum") String accountnum){
+		return customerAccountService.getCustomerAccountbyNumber(accountnum);
+	}
+	
 	//update total amount by id
 	//response : 204
 	//http://localhost:8000/api/customeraccounts/1

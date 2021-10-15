@@ -56,6 +56,12 @@ public class CustomerAccountServiceImpl implements CustomerAccountService {
 		customerAccountRepository.save(custacc);
 		return customeraccount;
 	}
+
+	@Override
+	public List<CustomerAccount> getCustomerAccountbyNumber(String theAccnum) {
+		return customerAccountRepository.findByaccountnumber(theAccnum);
+	}
+	
 }
 
 	
