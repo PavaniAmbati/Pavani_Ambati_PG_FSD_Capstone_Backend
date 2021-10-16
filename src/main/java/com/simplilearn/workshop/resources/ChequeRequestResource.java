@@ -73,7 +73,7 @@ public class ChequeRequestResource {
 		return new ResponseEntity<ChequeRequest>(savedChequeRequest,HttpStatus.CREATED);
 	}
 	
-	//update admin password by id
+	//update cheque request by id
 	//response : 204
 	//http://localhost:8000/api/chequerequests/1
 	@CrossOrigin(origins = "http://localhost:4200")

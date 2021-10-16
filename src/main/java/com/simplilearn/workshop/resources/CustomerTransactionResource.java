@@ -65,7 +65,7 @@ public class CustomerTransactionResource {
 		return new ResponseEntity<CustomerTransaction>(savedCustomerTransaction,HttpStatus.CREATED);
 	}
 	
-	//get customer accounts by cust id
+	//get customer transactions by account id
 	//http://localhost:8000/api/customeraccounts/custid/1
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("accountid/{id}")

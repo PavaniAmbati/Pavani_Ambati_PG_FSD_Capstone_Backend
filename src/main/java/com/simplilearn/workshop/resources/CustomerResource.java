@@ -66,7 +66,7 @@ public class CustomerResource {
 			return new ResponseEntity<Customer>(savedCustomer,HttpStatus.CREATED);
 		}
 		
-		//update admin password by id
+		//update customer by id
 		//response : 204
 		//http://localhost:8000/api/chequerequests/1
 		@CrossOrigin(origins = "http://localhost:4200")
