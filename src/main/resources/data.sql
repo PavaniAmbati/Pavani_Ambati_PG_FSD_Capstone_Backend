@@ -23,8 +23,6 @@ insert into chequerequest(accountid,accountnumber,chequetype,chequerequeststatus
 values (1,'S45554445444','50 cheques','approved',1);
 insert into chequerequest(accountid,accountnumber,chequetype,chequerequeststatus,customeraccount_accountid)
 values (2,'C44554455765','50 cheques','approved',2);
-insert into chequerequest(accountid,accountnumber,chequetype,chequerequeststatus,customeraccount_accountid)
-values (3,'C44554455765','25 cheques','',3);
 
 insert into adminusers(userid,username,password)
 values (1,'admin','admin1');
